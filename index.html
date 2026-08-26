@@ -1437,14 +1437,17 @@ function saveLRPDF(){
       "Bookings: "+rows.length+" | Parcels: "+parcels+" | Grand Total: ₹"+total.toFixed(2);
   };
   window.printBookingReport=function(){
-    document.body.classList.add("booking-report-printing");
-    var p=document.getElementById("bookingReportPanel");
-    if(p) p.style.display="block";
-    setTimeout(function(){
-      window.print();
-      setTimeout(function(){document.body.classList.remove("booking-report-printing")},1500);
-    },300);
-  };
+  document.body.classList.add("booking-report-printing");
+
+  var p=document.getElementById("bookingReportPanel");
+  if(p) p.style.display="block";
+
+  window.print();
+
+  setTimeout(function(){
+    document.body.classList.remove("booking-report-printing");
+  },1000);
+};
 })();
 </script>
 
